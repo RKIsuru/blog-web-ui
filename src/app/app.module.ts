@@ -7,11 +7,13 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreatePostComponent } from './pages/create-post/create-post.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,
