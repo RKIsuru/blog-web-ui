@@ -1,1 +1,30 @@
-<p>create-post works!</p>
+<mat-card class="center-card">
+  <mat-card-content>
+    <div>
+
+      <mat-form-field appearance="fill">
+         <mat-label>Name</mat-label>
+         <input matInput formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Image</mat-label>
+        <input matInput formControlName="img">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Content</mat-label>
+        <textarea matInput rows="5" formControlName="content"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Posted By</mat-label>
+        <input matInput formControlName="postedBy">
+      </mat-form-field>
+
+      <button class="create-btn" mat-raised-button color="primary"
+        [disabled]="!postForm.valid">Create New Post</button>
+
+    </div>
+  </mat-card-content>
+</mat-card>

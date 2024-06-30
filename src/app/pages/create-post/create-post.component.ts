@@ -24,4 +24,6 @@ export class CreatePostComponent {
         postedBy: [null, Validators.required]
       })
     }
+
+
 }
