@@ -16,7 +16,7 @@ export class CreatePostComponent {
 
 
   constructor (private fb: FormBuilder, private router: Router,
-    private snackBar: MatSnackBar, private postService: PostService){}
+    private snackBar: MatSnackBar, private postService: PostService,){}
 
 
     ngOnInit(){
