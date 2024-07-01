@@ -2,43 +2,48 @@
   <mat-card-content>
     <div>
 
-      <mat-form-field appearance="fill">
-         <mat-label>Name</mat-label>
-         <input matInput formControlName="name">
-      </mat-form-field>
+      <form [formGroup]="postForm">
 
-      <mat-form-field appearance="fill">
-        <mat-label>Image</mat-label>
-        <input matInput formControlName="img">
-      </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Content</mat-label>
-        <textarea matInput rows="5" formControlName="content"></textarea>
-      </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Posted By</mat-label>
-        <input matInput formControlName="postedBy">
-      </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Image</mat-label>
+          <input matInput formControlName="img">
+        </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Add Tags</mat-label>
-        <mat-chip-grid #chipGrid aria-label="Enter tags">
-          <mat-chip-row *ngFor="let tag of tags; let i=index" (removed)="remove(tag)">
-            {{tag}}
-            <button matChipRemove>
-              <mat-icon>cancel</mat-icon>
-            </button>
-          </mat-chip-row>
+        <mat-form-field appearance="fill">
+          <mat-label>Content</mat-label>
+          <textarea matInput rows="5" formControlName="content"></textarea>
+        </mat-form-field>
 
-          <input placeholder="New Tag..." [matChipInputFor]="chipGrid"
-           (matChipInputTokenEnd)="add($event)"/>
-        </mat-chip-grid>
-      </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Posted By</mat-label>
+          <input matInput formControlName="postedBy">
+        </mat-form-field>
 
-      <button class="create-btn" mat-raised-button color="primary"
-         (click)="createPost()">Create New Post</button>
+        <mat-form-field appearance="fill">
+          <mat-label>Add Tags</mat-label>
+          <mat-chip-grid #chipGrid aria-label="Enter tags">
+            <mat-chip-row *ngFor="let tag of tags; let i=index" (removed)="remove(tag)">
+              {{tag}}
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip-row>
+
+            <input placeholder="New Tag..." [matChipInputFor]="chipGrid"
+            (matChipInputTokenEnd)="add($event)"/>
+          </mat-chip-grid>
+        </mat-form-field>
+
+        <button class="create-btn" mat-raised-button color="primary"
+          [disabled]="!postForm.valid" (click)="createPost()">Create New Post</button>
+
+      </form>
 
     </div>
   </mat-card-content>

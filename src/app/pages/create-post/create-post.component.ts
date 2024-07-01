@@ -22,7 +22,7 @@ export class CreatePostComponent {
     ngOnInit(){
       this.postForm = this.fb.group({
         name: [null, Validators.required],
-        content: [null, Validators.required, Validators.maxLength(10000)],
+        content: [null, Validators.required],
         img: [null, Validators.required],
         postedBy: [null, Validators.required]
       })
