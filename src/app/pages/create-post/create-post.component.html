@@ -22,6 +22,21 @@
         <input matInput formControlName="postedBy">
       </mat-form-field>
 
+      <mat-form-field appearance="fill">
+        <mat-label>Add Tags</mat-label>
+        <mat-chip-grid #chipGrid aria-label="Enter tags">
+          <mat-chip-row *ngFor="let tag of tags; let i=index" (removed)="remove(tag)">
+            {{tag}}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+
+          <input placeholder="New Tag..." [matChipInputFor]="chipGrid"
+           (matChipInputTokenEnd)="add($event)"/>
+        </mat-chip-grid>
+      </mat-form-field>
+
       <button class="create-btn" mat-raised-button color="primary"
         [disabled]="!postForm.valid">Create New Post</button>
 
