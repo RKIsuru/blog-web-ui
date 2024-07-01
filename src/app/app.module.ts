@@ -9,12 +9,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreatePostComponent } from './pages/create-post/create-post.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ViewAllComponent } from './pages/view-all/view-all.component';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    ViewAllComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
   ],
   providers: [
     provideAnimationsAsync()
