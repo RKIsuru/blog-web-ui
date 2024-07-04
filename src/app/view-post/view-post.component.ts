@@ -31,4 +31,14 @@ export class ViewPostComponent {
       })
     }
 
+    likePost(){
+      this.postService.likePost(this.postId).subscribe((response)=>{
+        this.matSnackBar.open("Post Liked Successfully", "ok")
+        this.getPostById();
+      },error=>{
+        this.matSnackBar.open("Something Went Wrong!", "ok")
+      }
+    )
+    }
+
 }
