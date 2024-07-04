@@ -1,0 +1,30 @@
+.card-container{
+  margin: 16px;
+  max-width: 60%;
+  padding-bottom: 30px;
+}
+
+mat-card{
+  padding: 10px;
+}
+
+.example-header-image{
+  background-image: url('https://images.unsplash.com/photo-1719209618812-a11aea8d1a32?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+}
+
+mat-card-content{
+  margin-top: 10px;
+}
+
+mat-card-footer{
+  margin-left: 20px;
+}
+
+.comment-card{
+  margin-top: 20px;
+}
+
+mat-form-field{
+  width: 100%;
+}

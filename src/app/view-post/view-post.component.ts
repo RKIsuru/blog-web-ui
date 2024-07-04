@@ -18,12 +18,14 @@ export class ViewPostComponent {
     private matSnackBar: MatSnackBar,){}
 
     ngOnInit(){
-
+      console.log(this.postId);
+      this.getPostById();
     }
 
     getPostById(){
       this.postService.getPostById(this.postId).subscribe(res=>{
         this.postData = res;
+        console.log(res);
       }, error=>{
         this.matSnackBar.open("Something Went Wrong!", "ok")
       })

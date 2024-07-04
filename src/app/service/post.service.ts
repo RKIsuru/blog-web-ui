@@ -20,7 +20,7 @@ export class PostService {
   }
 
   getPostById(postId: number): Observable<any>{
-    return this.http.get(BASIC_URL + 'api/posts/${postId}');
+    return this.http.get(BASIC_URL + 'api/posts/'+postId);
   }
 
 
