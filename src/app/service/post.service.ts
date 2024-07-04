@@ -19,6 +19,11 @@ export class PostService {
     return this.http.get(BASIC_URL + 'api/posts');
   }
 
+  getPostById(postId: number): Observable<any>{
+    return this.http.get(BASIC_URL + 'api/posts/${postId}');
+  }
+
+
 }
 
 

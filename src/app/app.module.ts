@@ -11,13 +11,15 @@ import { CreatePostComponent } from './pages/create-post/create-post.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewAllComponent } from './pages/view-all/view-all.component';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { ViewPostComponent } from './view-post/view-post.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CreatePostComponent,
-    ViewAllComponent
+    ViewAllComponent,
+    ViewPostComponent
   ],
   imports: [
     BrowserModule,
