@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from '../service/post.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CommentService } from '../service/comment.service';
 
 @Component({
   selector: 'app-view-post',
@@ -15,11 +17,32 @@ export class ViewPostComponent {
 
   constructor(private postService: PostService,
     private activatedRoute: ActivatedRoute,
-    private matSnackBar: MatSnackBar,){}
+    private matSnackBar: MatSnackBar, private fb: FormBuilder,
+    private commentService: CommentService){}
+
+    commentForm!: FormGroup;
 
     ngOnInit(){
       console.log(this.postId);
       this.getPostById();
+
+      this.commentForm = this.fb.group({
+        postedBy: [null, Validators.required],
+        content: [null, Validators.required]
+      })
+    }
+
+    postComment(){
+      const postedBy= this.commentForm.get("postedBy")?.value;
+      const content= this.commentForm.get("content")?.value;
+
+      this.commentService.createComment(this.postId, postedBy, content)
+      .subscribe(res=>{
+        this.matSnackBar.open("Comment Posted Successfully!", "ok")
+      }, error=>{
+        this.matSnackBar.open("Something Went Wrong!", "ok")
+      }
+    )
     }
 
     getPostById(){
@@ -40,5 +63,8 @@ export class ViewPostComponent {
       }
     )
     }
+
+
+
 
 }
