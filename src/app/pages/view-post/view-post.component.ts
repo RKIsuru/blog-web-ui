@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PostService } from '../service/post.service';
+import { PostService } from '../../service/post.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CommentService } from '../service/comment.service';
+import { CommentService } from '../../service/comment.service';
 
 @Component({
   selector: 'app-view-post',
@@ -21,6 +21,7 @@ export class ViewPostComponent {
     private commentService: CommentService){}
 
     commentForm!: FormGroup;
+    comments: any;
 
     ngOnInit(){
       console.log(this.postId);
@@ -39,6 +40,7 @@ export class ViewPostComponent {
       this.commentService.createComment(this.postId, postedBy, content)
       .subscribe(res=>{
         this.matSnackBar.open("Comment Posted Successfully!", "ok")
+        this.getCommentsByPost();
       }, error=>{
         this.matSnackBar.open("Something Went Wrong!", "ok")
       }
@@ -49,6 +51,7 @@ export class ViewPostComponent {
       this.postService.getPostById(this.postId).subscribe(res=>{
         this.postData = res;
         console.log(res);
+        this.getCommentsByPost();
       }, error=>{
         this.matSnackBar.open("Something Went Wrong!", "ok")
       })
@@ -64,7 +67,14 @@ export class ViewPostComponent {
     )
     }
 
-
+    getCommentsByPost(){
+      this.commentService.getAllCommentsByPost(this.postId).subscribe(res=>{
+        this.comments=res;
+      }, error=>{
+        this.matSnackBar.open("Something Went Wrong!", "ok")
+      }
+    )
+    }
 
 
 }

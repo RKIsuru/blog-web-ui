@@ -45,5 +45,16 @@
       </div>
     </mat-card-content>
   </mat-card>
+
+  <div style="margin-top: 10px;" *ngFor="let comment of comments">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ comment.postedBy }}</mat-card-title>
+      <mat-card-subtitle>{{ comment.createdAt | date:"medium" }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      {{ comment.content }}
+    </mat-card-content>
+  </div>
 </div>
 

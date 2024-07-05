@@ -11,7 +11,8 @@ import { CreatePostComponent } from './pages/create-post/create-post.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewAllComponent } from './pages/view-all/view-all.component';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
-import { ViewPostComponent } from './view-post/view-post.component';
+import { ViewPostComponent } from './pages/view-post/view-post.component';
+import { SearchComponent } from './pages/search/search.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ViewPostComponent } from './view-post/view-post.component';
     AppComponent,
     CreatePostComponent,
     ViewAllComponent,
-    ViewPostComponent
+    ViewPostComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
